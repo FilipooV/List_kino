@@ -9,8 +9,8 @@ namespace Lista_filmow_v2
         {
             InitializeComponent();
         }
-        string path = @"S:\Filip Trzmiel\Lista_filmow_v2\Lista_filmow_v2\text.txt";
-
+/*        string path = @"S:\Filip Trzmiel\Lista_filmow_v2\Lista_filmow_v2\text.txt";
+*/
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -28,7 +28,7 @@ namespace Lista_filmow_v2
             }
             else
             {
-                string[] row = { textBox1.Text, textBox2.Text, dateTimePicker1.Text, textBox3.Text };
+                string[] row = { textBox1.Text, textBox2.Text, textBox3.Text, dateTimePicker1.Text };
                 var listViewItem = new ListViewItem(row);
                 listView1.Items.Add(listViewItem);
 
@@ -51,10 +51,10 @@ namespace Lista_filmow_v2
                 {
                     linie[i] = "";
                     for (int k = 0; k < item.SubItems.Count; k++)
-                        linie[i] += item.SubItems[k].Text + " ";
+                        linie[i] += item.SubItems[k].Text + "^";
 
                     i++;
-                    File.WriteAllLines(path, linie);
+                    File.WriteAllLines("text.txt", linie);
                     Application.Exit();
                 }
             else
@@ -84,7 +84,7 @@ namespace Lista_filmow_v2
             
             string[] linie = new string[listView1.Items.Count];
             int i = 0;
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            if (listView1.Items.Count == 0)
             {
                 MessageBox.Show("Nie podano danych");
             }
@@ -93,12 +93,15 @@ namespace Lista_filmow_v2
                 {
                     linie[i] = "";
                     for (int k = 0; k < item.SubItems.Count; k++)
-                        linie[i] += item.SubItems[k].Text + " ";
+                        linie[i] += item.SubItems[k].Text + "^";
 
                     i++;
+                
                 }
-                string path = @"S:\Filip Trzmiel\Lista_filmow_v2\Lista_filmow_v2\text.txt";
-                File.WriteAllLines(path, linie);
+/*                string path = @"S:\Filip Trzmiel\Lista_filmow_v2\Lista_filmow_v2\text.txt";
+*/                
+
+                File.WriteAllLines("text.txt", linie);
             }
             
             
@@ -106,16 +109,48 @@ namespace Lista_filmow_v2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(path))
-                return;
-
             string[] linie = File.ReadAllLines("text.txt");
 
-            foreach (string linia in line)
+            string[] row = { textBox1.Text, textBox2.Text, textBox3.Text, dateTimePicker1.Text };
+            var listViewItem = new ListViewItem(row);
+
+
+            if (!File.Exists("text.txt"))
+                return;
+
+
+            foreach (string linia in linie)
             {
-                string[] temp = linia.Split(' ');
+                string[] temp = linia.Split('^');
+
+                Convert.ToString(temp);
+                listView1.Items.Add(new ListViewItem(temp));
 
             }
+        }
+
+        private void zmieñToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == " " || textBox2.Text == " " || textBox3.Text == "")
+            {
+                MessageBox.Show("Nie podano danych");
+            }
+            else
+            {
+                listView1.SelectedItems[0].SubItems[0].Text = textBox1.Text;
+                listView1.SelectedItems[0].SubItems[1].Text = textBox2.Text;
+                listView1.SelectedItems[0].SubItems[2].Text = textBox3.Text;
+                listView1.SelectedItems[0].SubItems[3].Text = dateTimePicker1.Text;
+            }
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
         }
     }
 }

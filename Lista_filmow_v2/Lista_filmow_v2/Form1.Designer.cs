@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.usunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zmieńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -48,15 +49,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usunToolStripMenuItem});
+            this.usunToolStripMenuItem,
+            this.zmieńToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 48);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // usunToolStripMenuItem
@@ -65,6 +68,13 @@
             this.usunToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.usunToolStripMenuItem.Text = "Usuń wybrane";
             this.usunToolStripMenuItem.Click += new System.EventHandler(this.usunToolStripMenuItem_Click);
+            // 
+            // zmieńToolStripMenuItem
+            // 
+            this.zmieńToolStripMenuItem.Name = "zmieńToolStripMenuItem";
+            this.zmieńToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.zmieńToolStripMenuItem.Text = "Zmień";
+            this.zmieńToolStripMenuItem.Click += new System.EventHandler(this.zmieńToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -102,7 +112,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(540, 67);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(230, 23);
+            this.textBox3.Size = new System.Drawing.Size(246, 23);
             this.textBox3.TabIndex = 6;
             // 
             // label3
@@ -128,7 +138,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(540, 38);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(230, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(246, 23);
             this.dateTimePicker1.TabIndex = 8;
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 24, 0, 0, 0, 0);
             // 
@@ -137,7 +147,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(650, 96);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 30);
+            this.button1.Size = new System.Drawing.Size(136, 30);
             this.button1.TabIndex = 9;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
@@ -157,7 +167,7 @@
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView1.Location = new System.Drawing.Point(38, 145);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(732, 249);
+            this.listView1.Size = new System.Drawing.Size(748, 249);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -188,7 +198,7 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(650, 400);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 30);
+            this.button2.Size = new System.Drawing.Size(136, 30);
             this.button2.TabIndex = 11;
             this.button2.Text = "Zamknij";
             this.button2.UseVisualStyleBackColor = true;
@@ -197,9 +207,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(524, 400);
+            this.button3.Location = new System.Drawing.Point(515, 400);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 30);
+            this.button3.Size = new System.Drawing.Size(129, 30);
             this.button3.TabIndex = 12;
             this.button3.Text = "Zapisz";
             this.button3.UseVisualStyleBackColor = true;
@@ -208,19 +218,31 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(351, 96);
+            this.button4.Location = new System.Drawing.Point(494, 96);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(293, 30);
+            this.button4.Size = new System.Drawing.Size(150, 30);
             this.button4.TabIndex = 13;
             this.button4.Text = "Wyświetl z pliku";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button5.Location = new System.Drawing.Point(338, 96);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(150, 30);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "Zmień";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(814, 450);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -235,6 +257,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Lista aktorów";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -263,5 +286,7 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private ToolStripMenuItem zmieńToolStripMenuItem;
+        private Button button5;
     }
 }
